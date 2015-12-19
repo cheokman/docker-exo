@@ -183,7 +183,7 @@
             <attributes>
               <attribute>
                 <name>firstName</name>
-                <mapping>cn</mapping>
+                <mapping>givenName</mapping>
                 <type>text</type>
                 <isRequired>false</isRequired>
                 <isMultivalued>false</isMultivalued>
@@ -218,7 +218,7 @@
               </option>
               <option>
                 <name>ctxDNs</name>
-                <value>{ldapDNs}</value>
+                <value>${ldap.dns}</value>
               </option>
               <option>
                 <name>allowCreateEntry</name>
@@ -262,7 +262,7 @@
               </option>
               <option>
                 <name>ctxDNs</name>
-                <value>{ldapDNs}</value>
+                <value>${ldap.dns}</value>
               </option>
               <!--<option>-->
               <!--<name>entrySearchFilter</name>-->
@@ -318,7 +318,7 @@
               </option>
               <option>
                 <name>ctxDNs</name>
-                <value>{ldapDNs}</value>
+                <value>${ldap.dns}</value>
               </option>
               <!--<option>-->
               <!--<name>entrySearchFilter</name>-->
@@ -356,15 +356,15 @@
         <options>
           <option>
             <name>providerURL</name>
-            <value>ldap://{ldap:3268}</value>
+            <value>ldap://${ldap.host}:${ldap.port}</value>
           </option>
           <option>
             <name>adminDN</name>
-            <value>{ldapAccount}</value>
+            <value>${ldap.account}</value>
           </option>
           <option>
             <name>adminPassword</name>
-            <value>{ldapPassword}</value>
+            <value>${ldap.password}</value>
           </option>
           <option>
             <name>searchTimeLimit</name>
