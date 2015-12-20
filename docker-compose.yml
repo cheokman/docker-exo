@@ -24,10 +24,10 @@ exoplf:
     MYSQL_DATABASE: exo
     MYSQL_USER: exo
     MYSQL_PASSWORD: changeme
-    LDAP_DNS: DC=mo,DC=example,DC=com 
-    LDAP_HOST: ldap.example.com
-    LDAP_PORT: 3268
-    LDAP_ACCOUNT: ldap 
+    LDAP_DNS: DC=example,DC=com,DC=mo
+    LDAP_HOST: dc.example.com.mo
+    LDAP_PORT: 268
+    LDAP_ACCOUNT: ldap
     LDAP_PASSWORD: changeme 
   links:
   - mysql
