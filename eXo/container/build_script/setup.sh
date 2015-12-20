@@ -15,10 +15,12 @@ ln -s $EXO_APP_DIR/platform-$EXO_EDITION-$EXO_VERSION $EXO_APP_DIR/current
 curl -L -o $DOWNLOAD_DIR/mysql-jdbc-$MYSQL_DRIVER_VERSION.zip https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-$MYSQL_DRIVER_VERSION.zip
 unzip -q $DOWNLOAD_DIR/mysql-jdbc-$MYSQL_DRIVER_VERSION.zip -d /srv/
 cp /srv/mysql-connector-java-$MYSQL_DRIVER_VERSION/mysql-connector-java-$MYSQL_DRIVER_VERSION-bin.jar $EXO_APP_DIR/current/lib/
-echo "JAVA_OPTS=\"-Dmysql.database=\$MYSQL_DATABASE -Dmysql.user=\$MYSQL_USER -Dmysql.password=\$MYSQL_PASSWORD \$JAVA_OPTS\"" >> $EXO_APP_DIR/current/bin/setenv.sh
-jar cf $EXO_APP_DIR/current/webapps/ldap-extension.war /tmp/addons/ldap/war/WEB-INF/
-jar cf $EXO_APP_DIR/current/lib/ldap-extension-config.jar /tmp/addons/ldap/jar/conf/
-JAVA_OPTS="-Dldap.dns=\$LDAP_DNS -Dldap.host=\$LDAP_HOST -Dldap.port=\$LDAP_PORT -Dldap.account=\$LDAP_ACCOUNT -Dldap.password=\$LDAP_PASSWORD \$JAVA_OPTS\"" >> $EXO_APP_DIR/current/bin/setenv.sh 
+cd /tmp/addons/ldap/war/
+jar cf $EXO_APP_DIR/current/webapps/ldap-extension.war WEB-INF/
+cd /tmp/addons/ldap/jar/
+jar cf $EXO_APP_DIR/current/lib/ldap-extension-config.jar conf/
+cd /
+echo "JAVA_OPTS=\"-Dldap.dns=\$LDAP_DNS -Dldap.host=\$LDAP_HOST -Dldap.port=\$LDAP_PORT -Dldap.account=\$LDAP_ACCOUNT -Dldap.password=\$LDAP_PASSWORD -Dmysql.database=\$MYSQL_DATABASE -Dmysql.user=\$MYSQL_USER -Dmysql.password=\$MYSQL_PASSWORD \$JAVA_OPTS\"" >> $EXO_APP_DIR/current/bin/setenv.sh 
 
 rm -rf $EXO_APP_DIR/current/logs 
 ln -s $EXO_LOG_DIR $EXO_APP_DIR/current/logs
