@@ -2,7 +2,7 @@
 This is docker image for eXo Platform 4.3 with LDAP support.
 
 ##Configuration
- *LDAP
+ * LDAP
   * LDAP_DNS: DC=example,DC=com,DC=mo
   * LDAP_HOST: dc.example.com.mo
   * LDAP_PORT: 268
