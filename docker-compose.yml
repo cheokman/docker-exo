@@ -19,7 +19,6 @@ exoplf:
   build: ./eXo/
   ports:
   - 4080:8080/tcp
-  #image: teknologist/ubuntu-jdk7-exo-mysql
   environment:
     MYSQL_DATABASE: exo
     MYSQL_USER: exo
